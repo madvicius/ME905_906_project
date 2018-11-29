@@ -7,7 +7,7 @@ class ticktock():
         self.hour = 0
         self.minute = 0
         self.second = 0
-
+        self.total = 0
     def click(self):
         self.start = self.time()
 
@@ -15,14 +15,16 @@ class ticktock():
         if (self.start > 0):
             self.end = self.time()
             diff = int(self.end - self.start)
-            self.hours, self.minutes, self.seconds = diff // 3600, diff // 60, diff % 60
+            self.hours, self.minutes, self.seconds, self.total = diff // 3600, diff // 60, diff % 60, diff
         else:
             print("Start the clock with click()")
 
     def getTime(self):
         self.stop()
         return self.hours, self.minutes, self.seconds
-
+    def getNow(self):
+        self.stop()
+        return self.total
     def reset(self):
         self.start = 0
         self.end = 0
